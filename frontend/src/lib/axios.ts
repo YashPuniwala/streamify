@@ -1,6 +1,6 @@
-import axios from "axios"
+import axios from "axios";
 
 export const axiosInstance = axios.create({
-    baseURL: `${process.env.BACKEND_URL}/api`, // Ensure this matches your backend port
-    withCredentials: true
-})
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
+});

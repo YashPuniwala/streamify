@@ -2,7 +2,7 @@ import axios from "axios";
 import { Group, GroupMessage, LoginData, OnboardingFormState, SignupData } from "../types/frontendTypes";
 
 export const axiosInstance = axios.create({
-  baseURL: `${process.env.BACKEND_URL}/api`, // Ensure this matches your backend port
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true
 });
 
