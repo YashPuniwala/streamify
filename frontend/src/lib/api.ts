@@ -2,7 +2,7 @@ import axios from "axios";
 import { Group, GroupMessage, LoginData, OnboardingFormState, SignupData } from "../types/frontendTypes";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api", // Ensure this matches your backend port
+  baseURL: `${process.env.BACKEND_URL}/api`, // Ensure this matches your backend port
   withCredentials: true
 });
 
