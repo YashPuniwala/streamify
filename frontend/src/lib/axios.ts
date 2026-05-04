@@ -1,6 +1,6 @@
 import axios from "axios"
 
 export const axiosInstance = axios.create({
-    baseURL: "http://localhost:5000/api", // Ensure this matches your backend port
+    baseURL: `${process.env.BACKEND_URL}/api`, // Ensure this matches your backend port
     withCredentials: true
 })
