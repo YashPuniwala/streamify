@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,18 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+/* For react-select to work well with dark/light mode */
+.react-select__control {
+  min-height: 42px;
+}
+
+.react-select__indicators {
+  cursor: pointer;
+}
+
+/* Ensure proper z-index for dropdowns */
+.react-select__menu {
+  z-index: 50;
 }

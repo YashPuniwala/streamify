@@ -11,6 +11,7 @@ import SignUpPage from "./pages/signupPage";
 import { Toaster } from "react-hot-toast";
 import Layout from "./components/layout";
 import { useThemeStore } from "./store/themeStore";
+import "./App.css"
 
 function App() {
   const { isLoading, isAuthenticated, isOnboarded } = useAuthUser();

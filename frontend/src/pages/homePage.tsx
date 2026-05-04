@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getOutgoingFriendReqs,
   getRecommendedUsers,
@@ -22,7 +22,7 @@ const HomePage = () => {
   const queryClient = useQueryClient();
 
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
 
   const { data: friends = [], isLoading: loadingFriends } = useQuery({
@@ -55,8 +55,8 @@ const HomePage = () => {
       setOutgoingRequestsIds(outgoingIds);
     }
   }, [outgoingFriendReqs]);
-  console.log(recommendedUsers, "recommendedUsers")
-  
+  console.log(recommendedUsers, "recommendedUsers");
+
   return (
     <div className="p-4 sm:p-6 lg:p-8">
       <div className="container mx-auto space-y-10">
@@ -164,7 +164,7 @@ const HomePage = () => {
                         className={`btn w-full mt-2 ${
                           hasRequestBeenSent ? "btn-disabled" : "btn-primary"
                         } `}
-                        onClick={() => sendRequestMutation(user?._id)}
+                        onClick={() => sendRequestMutation(user._id!)}
                         disabled={hasRequestBeenSent || isPending}
                       >
                         {hasRequestBeenSent ? (
