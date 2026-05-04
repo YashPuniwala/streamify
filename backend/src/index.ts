@@ -21,26 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // ✅ CORS FIX (handles both local + deployed frontend)
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "https://streamifychatyyyy.netlify.app"
-      ];
-
-      // allow requests with no origin (mobile apps, curl, etc.)
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "https://streamifychatyyyy.netlify.app",
+  credentials: true,
+}));
 
 // ✅ Test route (so "/" doesn’t break)
 app.get("/", (req, res) => {

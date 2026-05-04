@@ -63,13 +63,13 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     );
 
     res.cookie("jwt", token, {
-      maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "none",     // 🔴 MUST be "none"
-      secure: true,         // 🔴 MUST be true (HTTPS)
+      secure: true,        // required for https
+      sameSite: "none",    // required for cross-origin
+      maxAge: 7 * 24 * 60 * 60 * 1000,
       path: "/",
     });
-    
+
     res.status(201).json({ success: true, user: newUser });
   } catch (error) {
     console.log("Error in signup controller", error);
