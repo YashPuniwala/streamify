@@ -69,7 +69,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: "/",
     });
-
+    
     res.status(201).json({ success: true, user: newUser });
   } catch (error) {
     console.log("Error in signup controller", error);
@@ -103,10 +103,11 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     });
 
     res.cookie("jwt", token, {
-      maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "strict",
-      secure: process.env.NODE_ENV === "production",
+      secure: true,        // required for https
+      sameSite: "none",    // required for cross-origin
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      path: "/",
     });
 
     res.status(200).json({ success: true, user });
